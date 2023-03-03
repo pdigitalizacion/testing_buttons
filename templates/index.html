@@ -1,0 +1,110 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title></title>-->
+<!--    <script type="text/javascript">-->
+<!--&lt;!&ndash;var intervalID = setInterval(update_values,1000);&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;Definition of JS variables&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;  function update_values() {&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        $.getJSON($SCRIPT_ROOT + '/refresh-tool',&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;      function(data) {&ndash;&gt;-->
+
+<!--&lt;!&ndash;        $('#name').text(data.name);&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;        console.log(typeof data);&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        console.log(data);&ndash;&gt;-->
+
+<!--&lt;!&ndash;      });&ndash;&gt;-->
+<!--&lt;!&ndash;    };&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;    function stopTextColor() {&ndash;&gt;-->
+<!--&lt;!&ndash;      clearInterval(intervalID);&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--const name = {name:"name"}-->
+<!--const obj = JSON.parse(name);-->
+<!--console.log(obj.name);-->
+<!--</script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--&lt;!&ndash;<h1>Lista de compras</h1>&ndash;&gt;-->
+<!--<ul id="cart">-->
+<!--</ul>-->
+<!--&lt;!&ndash;<input type="number" id="nProd" value=1>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text"   id="textProd" value="text">&ndash;&gt;-->
+<!--<button id="addToCart" onclick="addToCartButtonClicked();">Añadir</button>-->
+<!--<input type="text" id="textProd" value={{name}}>-->
+<!--&lt;!&ndash;    <p id="textProd"></p>&ndash;&gt;-->
+
+<!--<script>-->
+<!--    function addToCartButtonClicked(){-->
+<!--&lt;!&ndash;    //    let number = document.getElementById('nProd').value;&ndash;&gt;-->
+<!--        let text   = document.getElementById('textProd').value;-->
+
+<!--        var button = document.createElement("button");-->
+<!--&lt;!&ndash;        //button.textContent = "Remove";&ndash;&gt;-->
+<!--        button.onclick = function (){-->
+<!--            this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);-->
+<!--        };-->
+<!--        var p = document.createElement("p");-->
+<!--        p.textContent= textProd+"  ";-->
+<!--        var div = document.createElement("div");-->
+<!--        div.appendChild(p);-->
+<!--        //div.appendChild(button);-->
+
+<!--        var li = document.createElement("li");-->
+<!--        li.appendChild(div);-->
+<!--        document.getElementById("cart").appendChild(div);-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+
+<body>
+
+    <p id='selectdata'>
+    </p>
+    <script>
+        // var name = JSON.parse(name)
+
+
+        //name = 'd'
+
+        var selectdata = document.getElementById("selectdata"), test = {{ name | tojson }};
+
+        //El operador de incremento (++) incrementa (añade uno a) su operando y devuelve un valor.
+        for (var i = 0; i < test.length; i++)
+
+        // Esta línea comprueba la longitud de los datos introducidos, es decir, el número de elementos.
+        {
+            var selection = document.createElement("OPTION"),
+                // Esta línea crea una variable para almacenar los diferentes valores introducidos desde el objeto JSON "TEST".
+                txt = document.createTextNode(test[i]);
+            // Esto sólo lee cada valor de la variable JSON test anterior
+            selection.appendChild(txt);
+            // Esta línea añade cada valor a medida que se lee.
+            selection.setAttribute("value", test[i]);
+            // Esta línea establece cada valor leído como valor para el desplegable
+            selectdata.
+                insertBefore(selection, selectdata.lastChild);
+            //Esto lee cada valor en el desplegable basado en el orden en el "TEST" de arriba.
+        }
+    </script>
+</body>
+
+</html>
